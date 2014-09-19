@@ -1,0 +1,93 @@
+---
+layout: main
+title: HANDI open Platform Demonstrator
+---
+
+# HANDI-HOPD open platforms for apps
+
+<div class='alert alert-dismissable alert-info'>This site is still in very early development.</div>
+
+HANDI-HOPD is a set of **open specifications** to integrate apps with
+Electronic Health Records, and other
+Health IT systems. You get...
+
+<h3 id="clean"> Simple, clean Restful interface to clinical data:  <b>FHIR</b></h3>
+
+A set of Easy-to-use, resource-oriented REST API for structured clinical data. Grab a
+resource with the SMART-on:
+
+```
+$ curl https://fhir-open-api.smartplatforms.org/Patient/1032702 -H 'Accept: application/json'
+{
+  "resourceType": "Patient",
+  "identifier": [{
+      "use": "usual",
+      "label": "SMART Hospiptal MRN",
+      "system": "http://smart-hospital/mrn",
+      "value": "1032702"
+    }],
+  "name": [{
+      "use": "official",
+      "family": [ "Shaw" ],
+      "given": [ "Amy", "V." ]
+    }], 
+   ...
+}
+```
+h3 id="detailed"> Define your own datasets and persist/ query that data  <b>openEHRScape</b></h3>
+
+Use the openEHRscape API to access the full richness of clinical data, or to define and share new information models fot your own use
+```
+$ curl https://fhir-open-api.smartplatforms.org/Patient/1032702 -H 'Accept: application/json'
+{
+  "resourceType": "Patient",
+  "identifier": [{
+      "use": "usual",
+      "label": "SMART Hospiptal MRN",
+      "system": "http://smart-hospital/mrn",
+      "value": "1032702"
+    }],
+  "name": [{
+      "use": "official",
+      "family": [ "Shaw" ],
+      "given": [ "Amy", "V." ]
+    }], 
+   ...
+}
+```
+
+<h3 id="oauth">Scopes and permissions:  <b>OAuth2</b></h3>
+
+When an EHR user launches your app, you get a "launch request" notification.
+Just ask for the permissions you need using OAuth scopes like `patient/*.read`
+and once you're authorized you'll have an access token with the permissions you
+need -- including access to clinical data and context like:
+
+ * which patient is in-context in the EHR
+ * which encounter is in-context in the EHR
+ * the physical location of the EHR user
+
+<h3 id="openid">Simple sign-in:  <b>OpenID Connect</b></h3>
+
+If your app needs to authenticate the EHR end-user, OpenID Connect is there to
+help. Just ask for one additional scope (`openid`) when you request
+authorization, and you'll have access to a `UserInfo` endpoint that exposes
+structure claims about the user, including name and NPI.
+
+<h3 id="html">Lightweight UI integration:  <b>HTML5</b></h3>
+
+Need to hook your app into an existing EHR user interface? SMART on FHIR allows
+web apps to run inside browser widgets or inline frames, so users can interact
+without leaving the EHR environment. Of course, native and mobile apps are
+supported too -- so you can choose the level of integration that makes sense
+for you.
+{% raw %}
+<!--
+<example>
+**An example here**
+<pre>
+pre
+</pre>
+</example>
+-->
+{% endraw %}
