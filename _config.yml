@@ -1,0 +1,16 @@
+exclude: [
+    "README.md",
+    "node_modules",
+    "Gruntfile.js",
+    "package.json"
+]
+markdown: redcarpet
+redcarpet:
+  extensions:
+    - tables
+    - no_intra_emphasis
+    - autolink
+    - strikethrough
+    - fenced_code
+
+baseurl: /
