@@ -3,7 +3,7 @@ layout: main
 title: HANDI open Platform Demonstrator
 ---
 
-# HANDI-HOPD open platforms for apps  is this changed by .md?
+# HANDI-HOPD open platforms for apps?
 
 <div class='alert alert-dismissable alert-info'>This site is still in very early development.</div>
 
